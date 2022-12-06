@@ -1,0 +1,131 @@
+/**********************************************************
+* Project 1: Metro Simulator
+* CS 15
+* README
+* Author: Kelly Tsidji
+* Date: 07.06.2022
+*
+*********************************************************/
+
+
+Compile/run:
+     - Compile using
+            make MetroSim
+     - run executable with
+            ./MetroSim stationsFile passFile [commands]
+
+
+Program Purpose: This program simulates a Train that picks up and drops off 
+passengers at various stations. The user can add a file containing commands to 
+operate on the system, or they can provided those commands via cin. The command
+options are: adding a Passenger to a station (p ARRIVAL DEPARTURE), moving the 
+train to the next station (m m), or ending the simulation (m f).
+
+
+Acknowledgements: 
+~ CS15 Course Videos and Articles
+~ cplusplus.com references
+~ https://www.w3schools.com/cpp/cpp_files.asp
+~ https://math.hws.edu/eck/cs225/s03/files_and_strings.html
+~ https://www.youtube.com/watch?v=degQs6M5Igg
+~ https://www.freecodecamp.org/news/string-to-int-in-c-how-to-convert-a-string-
+to-an-integer-example/#:~:text=One%20effective%20way%20to%20convert,the%20integ
+er%20version%20of%20it
+
+
+FILES:
+main.cpp: reads in files, and calls on functions to run the simulation
+
+MetroSim.cpp: Implementation of MetroSim class.  Main
+     functionality of running the Metro Simulation, should be able to
+     move trains and deal with passengers going on/off the train.
+
+MetroSim.h: Interface of MetroSim class.
+
+stations.txt: an example file containing a list of stations.
+
+test_commands.txt: sample list of commands that you could give to the simulator
+
+the_metroSim: reference implementation for students
+
+
+Data Structures:
+~ A vector of Station structs to represent the stations
+~ A vector of PassengerQueues to represent the train
+~ A queue to represent a PassengerQueue
+~ How they work: Vectors are dynamic arrays, and queues are like linked lists
+  but with limited functions (can only add at the back of a queue, and can 
+  only remove from the front). Vectors are beneficial because the user can
+  directly access a member of the vector at a specific instance.
+
+
+TESTING:
+Passenger Class
+~ Testing print(): created a Passenger object with id of 1, arrival
+station of 3, and departure station of 1. Printed Passenger.
+Output: [1, 3->1]
+
+PassengerQueue Class
+~ Testing print(): 
+     ~ Created an empty PassengerQueue. Printed it using print(). 
+     Output: nothing
+     ~ Printed a PassengerQueue of 1 Passenger. Output: prints the 1 Passenger
+     ~ Printed a PassengerQueue of 2 Passengers. 
+     Output: prints the 2 Passengers in order of oldest to newest
+~ Testing front(): 
+     ~ Created an empty PassengerQueue. Tried to print the Passenger returned by
+     front(). Result: error message
+     ~ PassengerQueue of 1 Passenger: Printed the Passenger returned by front()
+     Output: prints the 1 Passenger
+     ~ PassengerQueue of 2 Passengers: Printed the Passenger returned by front()
+     Output: prints the first Passenger
+~ Testing size():
+     ~ Created an empty PassengerQueue. Printed its size(). Output: 0
+     ~ Printind size() of a PassengerQueue containing 1 Passenger. Output: 1
+     ~ Printind size() of a PassengerQueue containing 2 Passengers. Output: 2
+~ Testing enqueue():
+     ~ Added a Passenger to an empty PassengerQueue. Ran size(), front(), and
+     print() on PassengerQueue. Details under each function.
+     ~ Added another Passenger to a PassengerQueue of 1 Passenger. Ran size(), 
+     front(), and print() on PassengerQueue. Details under each function.
+~ Testing dequeue():
+     ~ Removing a Passenger from PassengerQueues of various sizes. Ran size(), 
+     front(), and print() on PassengerQueue. 
+     Result: successfully removes the Passenger from the PassengerQueue
+     ~ Try to remove a Passenger from an empty PassengerQueue. 
+     Result: error message
+
+MetroSim Class
+~ Testing program command line:
+     ~ Tried to run program using command "./MetroSim"
+     Result: error message "Usage: ./MetroSim stationsFile outputFile 
+     [commandsFile]"; program stops
+     ~ Tried to run program using command "./MetroSim stations.txt"
+     Result: error message "Usage: ./MetroSim stationsFile outputFile 
+     [commandsFile]"; program stops
+     ~ Ran program w/ 3 commands. Result: program runs
+     ~ Ran program w/ 4 commands. Result: program runs
+     ~ Ran program w/ 5 commands.
+     Result: error message "Usage: ./MetroSim stationsFile outputFile 
+     [commandsFile]"; program stops
+~ Testing that the files provided can be opened
+     ~ Tried to run program using file(s) that cannot be opened.
+     Result: error message that the file(s) cannot be opened & program stops
+     ~ Ran program w/ files that can be opened.
+     Result: program runs
+~ Printed vector containing station names to make sure the constructor properly
+read each station name into the vector. SUCCESSFUL
+~ Printed the number of passenger cars on the train vector. (There should be as
+many as there are statinons.) Result: 26 (for the 26 stations in stations.txt)
+~ Testing that the metro simulation ends when it's supposed to:
+     ~ w/ a file that ends w/ "m f": programs runs until "m f" command is read
+     ~ w/ a file that does NOT end w/ "m f": programs runs until end of file
+     ~ w/ cin: program runs until end of file
+
+
+Part that you found most difficult: Figuring out how to implement the file
+input and output streams, and how to pass those streams onto the constructor
+and functions.
+
+
+Time spent on assignment: 20 hours

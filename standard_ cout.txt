@@ -1,0 +1,39 @@
+vm-hw07{atsidj01}51: ./the_MetroSim teststations.txt standardoutput.txt test_commands.txt
+Passengers on the train: {}
+TRAIN: [0] Heath St {}
+       [1] Back of the Hill {}
+       [2] Riverway {}
+Command? Passengers on the train: {}
+       [0] Heath St {}
+TRAIN: [1] Back of the Hill {}
+       [2] Riverway {}
+Command? Passengers on the train: {}
+       [0] Heath St {}
+TRAIN: [1] Back of the Hill {[1, 1->2]}
+       [2] Riverway {}
+Command? Passengers on the train: {}
+       [0] Heath St {}
+       [1] Back of the Hill {}
+TRAIN: [2] Riverway {}
+Command? Passengers on the train: {}
+       [0] Heath St {}
+       [1] Back of the Hill {[2, 1->3]}
+TRAIN: [2] Riverway {}
+Command? Passengers on the train: {}
+TRAIN: [0] Heath St {}
+       [1] Back of the Hill {[2, 1->3]}
+       [2] Riverway {}
+Command? Passengers on the train: {}
+TRAIN: [0] Heath St {}
+       [1] Back of the Hill {[2, 1->3][3, 1->4]}
+       [2] Riverway {}
+Command? Passengers on the train: {}
+       [0] Heath St {}
+TRAIN: [1] Back of the Hill {[2, 1->3][3, 1->4]}
+       [2] Riverway {}
+Command? Passengers on the train: {}
+       [0] Heath St {}
+TRAIN: [1] Back of the Hill {[2, 1->3][3, 1->4][4, 1->5]}
+       [2] Riverway {}
+Floating exception
+vm-hw07{atsidj01}52: 
